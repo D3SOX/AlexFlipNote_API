@@ -3,3 +3,4 @@ pillow
 quart
 python-resize-image
 Wand
+aiohttp
