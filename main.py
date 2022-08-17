@@ -1,5 +1,5 @@
 from quart import Quart, render_template, jsonify
-from render import achievement, amiajoke, bad, calling, captcha, didyoumean, drake, facts, filter, floor, fml, jokeoverhead, opinion, pornhub, salty, scroll, shame, ship, what
+from render import achievement, amiajoke, bad, calling, captcha, didyoumean, drake, facts, filter, floor, fml, jokeoverhead, opinion, pornhub, salty, scroll, shame, ship, what, color
 
 app = Quart(__name__)
 
@@ -25,7 +25,8 @@ async def index():
             "/scroll?text=text",
             "/saa   hame?image=url",
             "/ship?user=url&user2=url",
-            "/what?image=url"
+            "/what?image=url",
+            "/color?color=color[&size=size]"
         ],
         "credits": [
             "AlexFlipnote, argo0n, bentettmar"
@@ -51,6 +52,7 @@ app.register_blueprint(scroll.blueprint)
 app.register_blueprint(shame.blueprint)
 app.register_blueprint(ship.blueprint)
 app.register_blueprint(what.blueprint)
+app.register_blueprint(color.blueprint)
 
 
 if __name__ == "__main__":
