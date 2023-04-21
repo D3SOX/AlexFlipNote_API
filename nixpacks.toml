@@ -1,2 +1,2 @@
-[phases.setup]
-aptPkgs = ["...", "python-wand"]
+[phases.install]
+  cmds = ['apt update', 'apt install -y libmagickwand-dev']
