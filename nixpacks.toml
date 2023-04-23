@@ -1,5 +1,5 @@
 [phases.setup]
-aptPkgs = ["...", "imagemagick", "libmagickwand-dev"]
+aptPkgs = ["...", "imagemagick", "libmagickwand-dev", "mlocate"]
 [phases.build]
-cmds = ["convert -version", "which convert", "..."]
+cmds = ["convert -version", "which convert", "locate libMagickWand.so", "mlocate libMagickWand.so", "..."]
 
