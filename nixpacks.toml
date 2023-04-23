@@ -1,2 +1,5 @@
 [phases.setup]
 aptPkgs = ["...", "imagemagick", "libmagickwand-dev"]
+[phases.build]
+cmds = ["convert -version", "which convert", "..."]
+
