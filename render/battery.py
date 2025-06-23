@@ -16,7 +16,7 @@ def create_battery_icon(charging: bool, percentage: int):
     elif charging:
         background_color = (52, 199, 89)
     else:
-        background_color = 0xffffff
+        background_color = (255, 255, 255)
 
     battery_background = Image.open("assets/battery/battery.png")
 
