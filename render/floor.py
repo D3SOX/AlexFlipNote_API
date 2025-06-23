@@ -19,7 +19,8 @@ async def create_floor_meme(text: str, image: str):
     offset = 25
     for line in textwrap.wrap(f'The floor is {text}', width=65):
         d.text((margin, offset), line, font=fnt, fill=(0,) * 3)
-        offset += fnt.getsize(line)[1]
+        bbox = fnt.getbbox(line)
+        offset += int(bbox[3] - bbox[1])
 
     if image:
         # == Avatars ==

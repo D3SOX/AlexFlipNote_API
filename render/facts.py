@@ -18,7 +18,7 @@ def create_facts(input):
     canv = ImageDraw.Draw(txtO)
     canv.text((65, 400), final_text, font=font, fill="Black")
 
-    txtO = txtO.rotate(-15, resample=Image.BICUBIC)
+    txtO = txtO.rotate(-15, resample=Image.Resampling.BICUBIC)
 
     out = Image.alpha_composite(base, txtO)
 

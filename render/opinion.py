@@ -15,7 +15,7 @@ async def create_trash(url, url_trash):
     try:
         image = Image.open(BytesIO(await http.get(url, res_method="read"))).convert("RGBA")
         face = image.resize((avatarsize, avatarsize))
-        face = face.rotate(5, expand=True, resample=Image.BICUBIC)
+        face = face.rotate(5, expand=True, resample=Image.Resampling.BICUBIC)
     except Exception:
         abort(400, "Face URL is invalid...")
 

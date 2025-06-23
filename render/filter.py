@@ -36,8 +36,8 @@ def create_filter(face, filter, size):
         superpixel_size = 10
         reduced_size = (img_size[0] // superpixel_size, img_size[1] // superpixel_size)
 
-        face = face.resize(reduced_size, Image.BICUBIC)
-        face = face.resize(img_size, Image.ANTIALIAS)
+        face = face.resize(reduced_size, Image.Resampling.BICUBIC)
+        face = face.resize(img_size, Image.Resampling.BICUBIC)
     elif filter == "jpegify":
         final = BytesIO()
         face.convert("RGB").save(final, 'JPEG', quality=random.randint(1, 11))
@@ -61,10 +61,10 @@ def create_filter(face, filter, size):
                 pixels[px, py] = (tr, tg, tb)
     elif filter == "deepfry":
         img = face.convert('RGB')
-        img = img.resize((int(width ** .75), int(height ** .75)), resample=Image.LANCZOS)
-        img = img.resize((int(width ** .88), int(height ** .88)), resample=Image.BILINEAR)
-        img = img.resize((int(width ** .9), int(height ** .9)), resample=Image.BICUBIC)
-        img = img.resize((width, height), resample=Image.BICUBIC)
+        img = img.resize((int(width ** .75), int(height ** .75)), resample=Image.Resampling.LANCZOS)
+        img = img.resize((int(width ** .88), int(height ** .88)), resample=Image.Resampling.BILINEAR)
+        img = img.resize((int(width ** .9), int(height ** .9)), resample=Image.Resampling.BICUBIC)
+        img = img.resize((width, height), resample=Image.Resampling.BICUBIC)
         img = ImageOps.posterize(img, 4)
 
         r = img.split()[0]
