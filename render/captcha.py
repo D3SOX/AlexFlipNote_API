@@ -13,7 +13,8 @@ def create_captcha(text):
     fnt = ImageFont.truetype('assets/_fonts/Roboto.ttf', 30)
     d = ImageDraw.Draw(txt)
 
-    w, h = d.textsize(text, font=fnt)
+    bbox = fnt.getbbox(text)
+    w, h = int(bbox[2] - bbox[0]), int(bbox[3] - bbox[1])
     w = max(450, w)
 
     mid = Image.new("RGBA", (w + 201, 189), (255, 255, 255, 0))

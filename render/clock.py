@@ -28,8 +28,8 @@ def create_clock(hour, minute, second):
         font = ImageFont.truetype("assets/_fonts/Arial.ttf", font_size)
     except IOError:
         font = ImageFont.load_default()
-    text_width, text_height = draw.textsize(am_pm_text, font=font)
-    print(center_x, center_y)
+    bbox = font.getbbox(am_pm_text)
+    text_width, text_height = int(bbox[2] - bbox[0]), int(bbox[3] - bbox[1])
     draw.text((center_x - text_width / 2, center_y + 55), am_pm_text, fill=(0, 0, 0), font=font)
 
     # Define lengths and colors for clock hands

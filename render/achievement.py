@@ -34,7 +34,8 @@ def create_achievement(title: str, ach: str, colour=(255, 255, 0, 255), icon: in
     fnt = ImageFont.truetype('assets/_fonts/Minecraft.ttf', 16)
     d = ImageDraw.Draw(txt)
 
-    w, h = d.textsize(ach, font=fnt)
+    bbox = fnt.getbbox(ach)
+    w, h = int(bbox[2] - bbox[0]), int(bbox[3] - bbox[1])
     w = max(320, w)
 
     mid = Image.new("RGBA", (w + 20, 64), (255, 255, 255, 0))
