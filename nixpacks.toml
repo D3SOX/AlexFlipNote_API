@@ -1,0 +1,5 @@
+[phases.setup]
+aptPkgs = ["...", "imagemagick", "libmagickwand-dev", "mlocate"]
+[phases.build]
+cmds = ["sudo dir /usr/lib", "..."]
+

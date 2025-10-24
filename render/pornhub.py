@@ -11,8 +11,11 @@ def create_pornhub(text: str, text2: str, iwidth: int = 16, height: int = 161, p
 
     fnt = ImageFont.truetype("assets/_fonts/ArialB.ttf", fontsize)
     d = ImageDraw.Draw(txt)
-    w, h = d.textsize(text, font=fnt)
-    w2, h2 = d.textsize(text2, font=fnt)
+    bbox1 = fnt.getbbox(text)
+    w, h = int(bbox1[2] - bbox1[0]), int(bbox1[3] - bbox1[1])
+
+    bbox2 = fnt.getbbox(text2)
+    w2, h2 = int(bbox2[2] - bbox2[0]), int(bbox2[3] - bbox2[1])
 
     textwindow_size = w + w2 + padding + (iwidth * 2)
 
