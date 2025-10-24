@@ -102,5 +102,5 @@ async def clock():
     return await send_file(
         create_clock(hour, minute, second),
         mimetype="image/png",
-        attachment_filename="achievement.png"
+        attachment_filename="clock.png"
     )

@@ -24,10 +24,11 @@ async def index():
             "/pornhub?text=text&text2=text",
             "/salty?image=url",
             "/scroll?text=text",
-            "/saa   hame?image=url",
+            "/shame?image=url",
             "/ship?user=url&user2=url",
             "/what?image=url",
             "/color?color=color[&size=size]",
+            "/clock?h=hour&m=minute&s=second",
             "/battery?pct=number&charging=truefalse",
         ],
         "credits": [

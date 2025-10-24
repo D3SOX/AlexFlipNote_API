@@ -13,7 +13,7 @@ def show_color(color, size):
     return bio
 
 @blueprint.route('/color')
-async def captcha():
+async def color():
     """?color=hex&size=size"""
     color = request.args.get('color')
     if color is None:
