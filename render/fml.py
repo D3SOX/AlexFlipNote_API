@@ -13,7 +13,10 @@ async def fml():
     )
 
     page = BeautifulSoup(resp, 'html.parser')
-    posts = page.find_all('a', class_='block text-blue-500 my-4')
+    posts = page.find_all('a', class_=['block', 'text-blue-500', 'my-4'])
+
+    if not posts:
+        return jsonify({"error": "No FML posts found"}), 404
 
     return jsonify({
         "text": posts[0].get_text().strip()
